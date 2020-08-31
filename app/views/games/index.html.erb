@@ -1,12 +1,14 @@
-<h1>Games#index</h1>
+<h1>Game Libray</h1>
 <h2>Hello <%= current_user.first_name %> </h2>
 
 <%= link_to "Add a new Game", new_game_path %>
 
-<ul>
+
   <% @games.each do |game|%>
-    <li><%= game.info %></li>
-    </ul>
+    <li><%= game.info %> </li>
+    <%= link_to "Edit", edit_game_path(game.id)%>
+    <%= link_to "Remove", game_path(game.id), method: :delete%>
+
 
    <%end%>
 <hr />
