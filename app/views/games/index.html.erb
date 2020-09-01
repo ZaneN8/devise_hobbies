@@ -2,14 +2,18 @@
 <h2>Hello <%= current_user.first_name %> </h2>
 
 <%= link_to "Add a new Game", new_game_path %>
-
-
+<hr />
+<p>Games in Library</p>
   <% @games.each do |game|%>
     <li><%= game.info %> </li>
-    <%= link_to "Edit", edit_game_path(game.id)%>
+  <div class="waves-effect waves-teal btn-flat">
+
+    <%= link_to "Edit", edit_game_path(game.id) %>
+    </div>
+      <div class="waves-effect waves-teal btn-flat">
+
     <%= link_to "Remove", game_path(game.id), method: :delete%>
-
-
+    </div>
    <%end%>
 <hr />
 <%= button_to "Log Out", destroy_user_session_path, method: :delete %>
